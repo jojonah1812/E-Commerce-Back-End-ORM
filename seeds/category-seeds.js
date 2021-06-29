@@ -1,4 +1,5 @@
 const { Category } = require('../models');
+require("seed-js");
 
 const categoryData = [
   {
