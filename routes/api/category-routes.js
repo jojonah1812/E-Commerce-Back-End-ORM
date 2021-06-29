@@ -7,9 +7,11 @@ router.get('/', async(req, res) => {
   try { 
     // find all categories
     // be sure to include its associated Products
-    const categoryData = await Category.findAll({
+    const categoryData = await Category.findAll(
+      {
       include: [{ model:Product}],
-  });
+      }
+      );
   res.status(200).json(categoryData);
 } catch (err) {
   res.status(500).json(err);
@@ -79,15 +81,10 @@ router.delete('/:id', async (req, res) => {
     }
 
     res.status(200).json(categoryData);
-  } catch (err) {
+  }catch (err){
     res.status(500).json(err);
   }
 });
-
-
-
-
-
 
 
 module.exports = router;
