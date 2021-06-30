@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
+const { restore } = require('../../models/Product');
 
 // The `/api/tags` endpoint
 
@@ -11,7 +12,7 @@ const { Tag, Product, ProductTag } = require('../../models');
 router.get('/', async(req, res) => {
   try { 
     const tagData = await Tag.findAll({
-      include: [{ model:Product, through: ProductTag, as: 'product_data'}],
+      include: [{ model: Product, through: ProductTag, as: 'product_data'}],
     });
     res.status(200).json(tagData);
   } catch (err) {
@@ -53,7 +54,7 @@ router.put('/:id', async(req, res) => {
       where: { id: req.params.id
       }
     });
-    if (!TagData){
+    if (!tagData){
       res.status(404).json({message: 'There is no tag with this id.'});
       return;
     }
@@ -66,16 +67,16 @@ router.put('/:id', async(req, res) => {
 // delete on tag by its `id` value
 router.delete('/:id', async (req, res) => {
   try {
-    const TagData = await Tag.destroy({
+    const tagData = await Tag.destroy({
       where: {
         id: req.params.id
       }
     });
-    if (!TagData) {
+    if (!tagData) {
       res.status(404).json({ message: 'There is no tag found with this id!' });
       return;
     }
-    res.status(200).json(TagData);
+    res.status(200).json(tagData);
   } catch (err) {
     res.status(500).json(err);
   }
