@@ -11,12 +11,13 @@ const { restore } = require('../../models/Product');
 
 router.get('/', async(req, res) => {
   try { 
-    const tagData = await Tag.findAll({
-      include: [{ model: Product, through: ProductTag, as: 'product_data'}],
-    });
+    const tagData = await Tag.findAll(
+      // include: [{ model: Product, through: ProductTag, }],
+    );
     res.status(200).json(tagData);
   } catch (err) {
-    res.status(500).json(err);
+    res.send("error");
+    // res.status(500).json(err);
   }
 });
 
