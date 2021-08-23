@@ -15,7 +15,9 @@
 9. [Questions & Contact Info](#questions)
 
 ## Project Description
-* Internet retail, also known as e-commerce, is the largest sector of the electronics industry, generating an estimated $29 trillion in 2019. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to their prevalence, understanding the fundamental architecture of these platforms will benefit you as a full-stack web developer.
+* Internet retail, also known as e-commerce, is the largest sector of the electronics industry, generating an estimated $29 trillion in 2019. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to their prevalence, understanding the fundamental architecture of these platforms will benefit us as full-stack web developers.
+
+In this project, I configured an Express.js API to use Sequelize to interact with a MySQL database.
 
 ## Link
 GitHub Repository: https://github.com/jojonah1812/E-Commerce-Back-End-ORM br>
